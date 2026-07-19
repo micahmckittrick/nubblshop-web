@@ -60,7 +60,12 @@ export default function Home() {
         </a>
       </div>
 
-      <p className="mt-16 text-xs text-[#8ba6c1]">© 2026 NubblShop LLC</p>
+      <div className="mt-16 flex items-center gap-2 text-xs text-[#8ba6c1]">
+        <a href="/privacy" className="hover:text-[#2c3e50] underline">Privacy</a>
+        <span>·</span>
+        <a href="/terms" className="hover:text-[#2c3e50] underline">Terms</a>
+      </div>
+      <p className="mt-3 text-xs text-[#8ba6c1]">© 2026 NubblShop LLC</p>
     </main>
   );
 }
