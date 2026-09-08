@@ -15,7 +15,7 @@ export default function Terms() {
           ← NubblShop
         </Link>
         <h1 className="text-3xl font-bold mt-6 mb-1">Terms of Service</h1>
-        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: July 18, 2026</p>
+        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: September 8, 2026</p>
 
         <div className="space-y-6 text-[#5c7a99] leading-relaxed">
           <p>
@@ -31,9 +31,9 @@ export default function Terms() {
             </h2>
             <p>
               This website provides information about NubblShop products,
-              including The Fuzzy, and links to third-party platforms where our
-              products are sold. You agree to use the site only for lawful
-              purposes.
+              including The Fuzzy. It is currently a prelaunch landing page,
+              not a checkout, and does not link an available product listing.
+              You agree to use the site only for lawful purposes.
             </p>
           </section>
 
@@ -42,10 +42,13 @@ export default function Terms() {
               Purchases
             </h2>
             <p>
-              Purchases are completed on third-party platforms such as Etsy.
-              Those transactions are subject to the terms, policies, shipping,
-              and return practices of the platform where the purchase is made. We
-              are not responsible for the operation of those platforms.
+              When an owned marketplace listing becomes available, review that
+              listing&apos;s price, availability, product specifications, shipping,
+              returns and seller contact information before ordering. Marketplace
+              transaction rules and the seller&apos;s fulfillment commitments are
+              distinct; using a third-party platform does not remove the
+              seller&apos;s responsibilities. This prelaunch website does not yet
+              make delivery, stock or return-window commitments.
             </p>
           </section>
 

@@ -15,7 +15,7 @@ export default function Privacy() {
           ← NubblShop
         </Link>
         <h1 className="text-3xl font-bold mt-6 mb-1">Privacy Policy</h1>
-        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: July 18, 2026</p>
+        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: September 8, 2026</p>
 
         <div className="space-y-6 text-[#5c7a99] leading-relaxed">
           <p>
@@ -41,13 +41,17 @@ export default function Privacy() {
               Purchases and Third-Party Platforms
             </h2>
             <p>
-              Product purchases are handled by third-party platforms such as
-              Etsy. When you follow a link to buy a product, any information you
-              provide (name, shipping address, payment details) is collected and
-              processed by that platform under its own privacy policy, not ours.
-              Links to Instagram and TikTok are likewise governed by those
-              platforms&apos; policies. We are not responsible for the practices
-              of third-party platforms.
+              This website is currently a prelaunch informational page, with no
+              checkout or linked product listing. If purchases become available
+              through a marketplace such as Etsy, that platform will explain its
+              own payment and account data processing. A marketplace may also
+              share order, delivery and support information with the seller to
+              fulfill an order; the platform&apos;s policy does not replace the
+              seller&apos;s responsibilities for that information. Before ordering,
+              review the actual listing and seller privacy, shipping and return
+              policies. No seller retention period or fulfillment provider is
+              represented here before that process is established. Links to
+              Instagram and TikTok are governed by those platforms&apos; policies.
             </p>
           </section>
 
