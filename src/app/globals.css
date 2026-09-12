@@ -26,4 +26,4 @@ body {
 }
 
 /* Visible keyboard focus without changing the approved palette. */
-a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 3px; }
+a:focus-visible { outline: 2px solid #2c3e50; outline-offset: 5px; }
