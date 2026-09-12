@@ -15,8 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NubblShop",
-  description: "A better way to fidget. Designed for adult sensory seekers, BFRB, and ADHD.",
+  metadataBase: new URL("https://www.nubblshop.com"),
+  title: "The Fuzzy by NubblShop | Adult sensory fidget",
+  description: "Meet The Fuzzy, a fidget for adult sensory seekers. Coming soon to Etsy; follow NubblShop’s existing social channels for launch updates.",
+  openGraph: {
+    title: "The Fuzzy by NubblShop",
+    description: "An adult sensory fidget, currently prelaunch. Visit our social channels for updates.",
+    siteName: "NubblShop", type: "website",
+    images: [{ url: "/logo.png", alt: "The Fuzzy by NubblShop brand mark" }],
+  },
+  twitter: { card: "summary", title: "The Fuzzy by NubblShop", description: "An adult sensory fidget, currently prelaunch.", images: ["/logo.png"] },
 };
 
 export default function RootLayout({

@@ -15,9 +15,9 @@ export default function Privacy() {
           ← NubblShop
         </Link>
         <h1 className="text-3xl font-bold mt-6 mb-1">Privacy Policy</h1>
-        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: September 8, 2026</p>
+        <p className="text-sm text-[#4a6b8c] mb-10">Last updated: September 8, 2026</p>
 
-        <div className="space-y-6 text-[#5c7a99] leading-relaxed">
+        <div className="space-y-6 text-[#4a6b8c] leading-relaxed">
           <p>
             NubblShop LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;)
             operates nubblshop.com, the home of The Fuzzy. This Privacy Policy
@@ -100,7 +100,7 @@ export default function Privacy() {
           </section>
         </div>
 
-        <p className="mt-12 text-xs text-[#8ba6c1]">© 2026 NubblShop LLC</p>
+        <p className="mt-12 text-xs text-[#4a6b8c]">© 2026 NubblShop LLC</p>
       </div>
     </main>
   );
