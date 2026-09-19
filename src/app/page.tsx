@@ -65,7 +65,7 @@ export default function Home() {
         <span>·</span>
         <a href="/terms" className="hover:text-[#2c3e50] underline">Terms</a>
       </div>
-      <p className="mt-3 text-xs text-[#8ba6c1]">© 2026 NubblShop LLC</p>
+      <p className="mt-3 text-xs text-[#8ba6c1]">© 2026 McKittrick LLC</p>
     </main>
   );
 }
