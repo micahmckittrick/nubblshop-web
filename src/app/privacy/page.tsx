@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — NubblShop",
@@ -17,15 +16,12 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main className="min-h-screen px-6 py-16 bg-[#fdfbf7] text-[#2c3e50]">
+    <div className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-2xl mx-auto">
-        <Link href="/" className="text-sm text-[#4a6b8c] hover:text-[#2c3e50]">
-          ← NubblShop
-        </Link>
-        <h1 className="text-3xl font-bold mt-6 mb-1">Privacy Policy</h1>
-        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: October 18, 2026</p>
+        <h1 className="font-display text-4xl font-bold tracking-tight mb-1">Privacy Policy</h1>
+        <p className="text-sm text-[#4a6b8c] mb-10">Last updated: October 22, 2026</p>
 
-        <div className="space-y-6 text-[#5c7a99] leading-relaxed">
+        <div className="space-y-6 text-[#4a6b8c] leading-relaxed">
           <p>
             McKittrick LLC, doing business as NubblShop (&quot;we,&quot;
             &quot;us,&quot; or &quot;our&quot;), operates nubblshop.com, the home
@@ -38,7 +34,8 @@ export default function Privacy() {
               Information We Collect
             </h2>
             <p>
-              Our website is an informational landing page. We do not require
+              Our website is informational: it explains The Fuzzy and how to
+              use it, including guides and demo videos. We do not require
               account registration and do not collect personal information
               directly through this site. We use Vercel Web Analytics and Vercel
               Speed Insights, which collect cookie-free, aggregated, anonymous
@@ -67,7 +64,7 @@ export default function Privacy() {
               Purchases and Third-Party Platforms
             </h2>
             <p>
-              This website is currently a prelaunch informational page, with no
+              This website is currently a prelaunch informational site, with no
               checkout or linked product listing. If purchases become available
               through a marketplace such as Etsy, that platform will explain its
               own payment and account data processing. A marketplace may also
@@ -126,17 +123,7 @@ export default function Privacy() {
           </section>
         </div>
 
-        <nav aria-label="Footer" className="mt-12 flex items-center gap-2 text-sm text-[#4a6b8c]">
-          <Link href="/" className="inline-flex items-center min-h-6 hover:text-[#2c3e50]">
-            ← Home
-          </Link>
-          <span aria-hidden="true">·</span>
-          <Link href="/terms" className="inline-flex items-center min-h-6 hover:text-[#2c3e50]">
-            Terms
-          </Link>
-        </nav>
-        <p className="mt-3 text-xs text-[#8ba6c1]">© 2026 McKittrick LLC</p>
       </div>
-    </main>
+    </div>
   );
 }

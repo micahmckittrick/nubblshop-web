@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service — NubblShop",
@@ -17,15 +16,12 @@ export const metadata: Metadata = {
 
 export default function Terms() {
   return (
-    <main className="min-h-screen px-6 py-16 bg-[#fdfbf7] text-[#2c3e50]">
+    <div className="px-4 sm:px-6 py-12 sm:py-16">
       <div className="max-w-2xl mx-auto">
-        <Link href="/" className="text-sm text-[#4a6b8c] hover:text-[#2c3e50]">
-          ← NubblShop
-        </Link>
-        <h1 className="text-3xl font-bold mt-6 mb-1">Terms of Service</h1>
-        <p className="text-sm text-[#8ba6c1] mb-10">Last updated: October 12, 2026</p>
+        <h1 className="font-display text-4xl font-bold tracking-tight mb-1">Terms of Service</h1>
+        <p className="text-sm text-[#4a6b8c] mb-10">Last updated: October 22, 2026</p>
 
-        <div className="space-y-6 text-[#5c7a99] leading-relaxed">
+        <div className="space-y-6 text-[#4a6b8c] leading-relaxed">
           <p>
             These Terms of Service (&quot;Terms&quot;) govern your use of
             nubblshop.com, operated by McKittrick LLC, doing business as
@@ -39,8 +35,9 @@ export default function Terms() {
             </h2>
             <p>
               This website provides information about NubblShop products,
-              including The Fuzzy. It is currently a prelaunch landing page,
-              not a checkout, and does not link an available product listing.
+              including The Fuzzy, with guides and demos for using it. It is
+              currently a prelaunch informational site, not a checkout, and does
+              not link an available product listing.
               You agree to use the site only for lawful purposes.
             </p>
           </section>
@@ -121,17 +118,7 @@ export default function Terms() {
           </section>
         </div>
 
-        <nav aria-label="Footer" className="mt-12 flex items-center gap-2 text-sm text-[#4a6b8c]">
-          <Link href="/" className="inline-flex items-center min-h-6 hover:text-[#2c3e50]">
-            ← Home
-          </Link>
-          <span aria-hidden="true">·</span>
-          <Link href="/privacy" className="inline-flex items-center min-h-6 hover:text-[#2c3e50]">
-            Privacy
-          </Link>
-        </nav>
-        <p className="mt-3 text-xs text-[#8ba6c1]">© 2026 McKittrick LLC</p>
       </div>
-    </main>
+    </div>
   );
 }

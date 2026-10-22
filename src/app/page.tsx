@@ -1,112 +1,188 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { Cord } from "@/components/Cord";
+import { SocialLinks } from "@/components/SocialLinks";
+import { VideoSlot } from "@/components/VideoSlot";
+import { EtsyButton, KnotCard, SectionHeading, buttonSecondary } from "@/components/ui";
+import { demosFor } from "@/content/demos";
+import { knots } from "@/content/knots";
+import { etsyUrl, siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://www.nubblshop.com" },
+  alternates: { canonical: siteUrl },
 };
 
+const facts = [
+  { value: "1.5 × 8 in", label: "About 4 × 20 cm, before stretching" },
+  { value: "Two-way stretch", label: "Most along its length, a little across" },
+  { value: "Soft & fuzzy", label: "No hard parts, no clicks, no batteries" },
+];
+
+const reasons = [
+  {
+    title: "Quiet",
+    body: "Fabric doesn't click, snap or rattle. Fidget through a meeting, a class or a call and nobody hears a thing.",
+    tone: "bg-sage-soft",
+  },
+  {
+    title: "Safe",
+    body: "Just soft, stretchy fabric. Nothing hard, sharp or electronic.",
+    tone: "bg-lav-soft",
+  },
+  {
+    title: "Easy",
+    body: "Nothing to learn before you start. Squish it right away and pick up knots when you want something new.",
+    tone: "bg-sage-soft",
+  },
+  {
+    title: "Feels good",
+    body: "The fuzzy texture gives your fingers something to feel, and the stretch gives them something to work against.",
+    tone: "bg-lav-soft",
+  },
+];
+
 export default function Home() {
+  const [featuredDemo] = demosFor("basics");
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-[#fdfbf7] text-[#2c3e50]">
-      {/* Logo / Brand */}
-      <div className="mb-8">
-        <Image 
-          src="/logo.png" 
-          alt="The Fuzzy by NubblShop" 
-          width={300} 
-          height={300} 
-          className="mx-auto rounded-full shadow-sm"
-          priority
+    <>
+      <section className="relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-20 sm:pb-24 grid items-center gap-12 md:grid-cols-[1.1fr_1fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-sage-ink">Home of The Fuzzy</p>
+            <h1 className="mt-3 font-display text-5xl sm:text-6xl font-bold tracking-tight text-ink">
+              A better way to fidget.
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate">
+              The Fuzzy is a soft, stretchy strip of fuzzy fabric you can squish, stretch and tie
+              into knots. Quiet, safe and easy, designed for adult sensory seekers, BFRB and ADHD.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <EtsyButton />
+              <Link href="/how-to-fuzzy" className={buttonSecondary}>
+                Learn to fuzzy
+              </Link>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-[16rem] sm:max-w-sm">
+            <div aria-hidden="true" className="absolute -left-6 -top-6 size-48 rounded-full bg-sage/40 blur-2xl" />
+            <div aria-hidden="true" className="absolute -bottom-8 -right-4 size-56 rounded-full bg-lav/40 blur-2xl" />
+            <Image
+              src="/badge.png"
+              alt="The Fuzzy by NubblShop logo: two soft strands tied in a knot"
+              width={512}
+              height={512}
+              priority
+              className="relative w-full rounded-full shadow-lg ring-8 ring-paper"
+            />
+          </div>
+        </div>
+      </section>
+
+      <Cord />
+
+      <section aria-labelledby="what-heading" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <SectionHeading
+          id="what-heading"
+          title="What is The Fuzzy?"
+          intro="A strip of soft, stretchy fabric that feels good in your hands. Hold it, ball it up, stretch it out or tie it in knots. However you use it is the right way."
         />
-      </div>
+        <dl className="mt-10 grid gap-4 sm:grid-cols-3">
+          {facts.map((f) => (
+            <div key={f.value} className="rounded-3xl border border-line bg-paper p-6">
+              <dt className="font-display text-2xl font-bold text-ink">{f.value}</dt>
+              <dd className="mt-1 text-slate">{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
-      <h1 className="text-5xl font-bold tracking-tight mb-2 text-[#2c3e50]">
-        NubblShop
-      </h1>
+      <section aria-labelledby="why-heading" className="bg-paper/70 border-y border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+          <SectionHeading id="why-heading" title="Made to keep your hands busy" />
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {reasons.map((r) => (
+              <li key={r.title} className={`rounded-3xl p-6 ${r.tone}`}>
+                <h3 className="font-display text-xl font-bold text-ink">{r.title}</h3>
+                <p className="mt-2 text-slate leading-relaxed">{r.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8">
+            <Link href="/about" className="font-semibold text-ink underline underline-offset-4 hover:text-slate">
+              Why we made it and how it helps →
+            </Link>
+          </p>
+        </div>
+      </section>
 
-      <p className="text-xl font-medium mb-6 text-[#4a6b8c] italic">
-        Home of The Fuzzy.
-      </p>
+      <section aria-labelledby="knots-heading" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            id="knots-heading"
+            title="Learn a few knots"
+            intro="Stretch it, tie it, pick it apart, repeat. Start with the ring and work your way up."
+          />
+          <Link href="/knots" className={buttonSecondary}>
+            All knot guides
+          </Link>
+        </div>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {knots.slice(0, 3).map((knot, i) => (
+            <li key={knot.slug}>
+              <KnotCard knot={knot} index={i} />
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <p className="max-w-md text-base text-[#5c7a99] leading-relaxed mb-10">
-        A better way to fidget. Designed for adult sensory seekers, BFRB, and ADHD.
-      </p>
+      <section aria-labelledby="demo-heading" className="bg-paper/70 border-y border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid items-center gap-10 md:grid-cols-[1fr_20rem]">
+          <div>
+            <SectionHeading
+              id="demo-heading"
+              title="See it in action"
+              intro="Short videos of the basic moves and every knot, so you can follow along with a Fuzzy in your hands."
+            />
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/demos" className={buttonSecondary}>
+                Watch the demos
+              </Link>
+              <Link href="/how-to-fuzzy" className={buttonSecondary}>
+                How to Fuzzy
+              </Link>
+            </div>
+          </div>
+          <div className="mx-auto w-full max-w-xs">
+            <VideoSlot demo={featuredDemo} />
+          </div>
+        </div>
+      </section>
 
-      <div className="inline-block border-2 border-[#8ba6c1] text-[#4a6b8c] px-6 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-12 bg-white">
-        Coming Soon to Etsy
-      </div>
-
-      {/* Social Links: Font Awesome Free 6.7.2 brand icons (CC BY 4.0) */}
-      <div className="flex flex-wrap justify-center gap-6">
-        <a
-          href="https://www.instagram.com/nubblshop/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NubblShop on Instagram (@nubblshop)"
-          className="flex items-center gap-2 min-h-6 text-[#5c7a99] hover:text-[#2c3e50] transition-colors font-medium text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" focusable="false">
-            <metadata>Font Awesome Free 6.7.2 by Fonticons, Inc. — https://fontawesome.com — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/</metadata>
-            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-          </svg>
-          Instagram
-        </a>
-        <a
-          href="https://www.tiktok.com/@nubblshop"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NubblShop on TikTok (@nubblshop)"
-          className="flex items-center gap-2 min-h-6 text-[#5c7a99] hover:text-[#2c3e50] transition-colors font-medium text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" focusable="false">
-            <metadata>Font Awesome Free 6.7.2 by Fonticons, Inc. — https://fontawesome.com — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/</metadata>
-            <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
-          </svg>
-          TikTok
-        </a>
-        <a
-          href="https://www.facebook.com/profile.php?id=61595296361086"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NubblShop on Facebook"
-          className="flex items-center gap-2 min-h-6 text-[#5c7a99] hover:text-[#2c3e50] transition-colors font-medium text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" focusable="false">
-            <metadata>Font Awesome Free 6.7.2 by Fonticons, Inc. — https://fontawesome.com — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/</metadata>
-            <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/>
-          </svg>
-          Facebook
-        </a>
-        <a
-          href="https://www.linkedin.com/company/114444052/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="NubblShop on LinkedIn (NubblShop)"
-          className="flex items-center gap-2 min-h-6 text-[#5c7a99] hover:text-[#2c3e50] transition-colors font-medium text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true" focusable="false">
-            <metadata>Font Awesome Free 6.7.2 by Fonticons, Inc. — https://fontawesome.com — CC BY 4.0 https://creativecommons.org/licenses/by/4.0/</metadata>
-            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
-          </svg>
-          LinkedIn
-        </a>
-      </div>
-
-      <p className="mt-16 text-xs text-[#8ba6c1]">
-        Questions?{" "}
-        <a href="mailto:support@nubblshop.com" className="inline-flex items-center min-h-6 hover:text-[#2c3e50] underline">Support</a>
-        {" · "}
-        <a href="mailto:feedback@nubblshop.com" className="inline-flex items-center min-h-6 hover:text-[#2c3e50] underline">Feedback</a>
-      </p>
-      <div className="mt-1 flex items-center gap-2 text-xs text-[#8ba6c1]">
-        <a href="/privacy" className="inline-flex items-center min-h-6 hover:text-[#2c3e50] underline">Privacy</a>
-        <span>·</span>
-        <a href="/terms" className="inline-flex items-center min-h-6 hover:text-[#2c3e50] underline">Terms</a>
-      </div>
-      <p className="mt-1 text-xs text-[#8ba6c1]">
-        © 2026{" "}
-        <a href="https://www.mckittrick.co" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-6 hover:text-[#2c3e50] underline">McKittrick LLC</a>
-      </p>
-    </main>
+      <section aria-labelledby="follow-heading" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="rounded-[2rem] bg-ink px-6 py-12 sm:px-12 text-center">
+          <h2 id="follow-heading" className="font-display text-3xl font-bold text-cream">
+            {etsyUrl ? "Get The Fuzzy on Etsy" : "Coming soon to Etsy"}
+          </h2>
+          {etsyUrl && (
+            <a
+              href={etsyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center min-h-12 px-6 rounded-full bg-cream text-ink font-semibold hover:bg-sage-soft transition-colors"
+            >
+              Buy on Etsy
+            </a>
+          )}
+          <p className="mx-auto mt-3 max-w-md text-cream/85">
+            Follow @nubblshop for {etsyUrl ? "" : "launch news, "}new knots and demos.
+          </p>
+          <div className="mt-6 flex justify-center [&_a]:text-cream [&_a:hover]:text-sage">
+            <SocialLinks showNames />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
